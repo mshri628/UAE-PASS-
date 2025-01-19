@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "6bbcf9c9-5c90-4342-b220-7980bdd49dfd",
+		"name": "Authentication APIs Postman Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8134979"
+	},
+	"item": [
+		{
+			"name": "STEP3 User Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d3a85547-96ad-3419-8791-56bf8c37d35a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic c2RnX2dzYl9kdWJhaW5vd19zdGFnZTpRdUZYeDg4WjB2ak0yek1w",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://stg-id.uaepass.ae/idshub/userinfo",
+					"protocol": "https",
+					"host": [
+						"stg-id",
+						"uaepass",
+						"ae"
+					],
+					"path": [
+						"idshub",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STEP1 Login form",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://stg-id.uaepass.ae/idshub/authorize?response_type=code&client_id=sandbox_stage&scope=urn:uae:digitalid:profile:general&state=HnlHOJTkTb66Y5H&redirect_uri=http://localhost:8080&acr_values=urn:safelayer:tws:policies:authentication:level:low",
+					"protocol": "https",
+					"host": [
+						"stg-id",
+						"uaepass",
+						"ae"
+					],
+					"path": [
+						"idshub",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "sandbox_stage"
+						},
+						{
+							"key": "scope",
+							"value": "urn:uae:digitalid:profile:general"
+						},
+						{
+							"key": "state",
+							"value": "HnlHOJTkTb66Y5H"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080"
+						},
+						{
+							"key": "acr_values",
+							"value": "urn:safelayer:tws:policies:authentication:level:low"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STEP2 Stg token by req params",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "sandbox_stage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sandbox_stage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://stg-id.uaepass.ae/idshub/token?grant_type=authorization_code&redirect_uri=http://localhost:8080&code=0bd882fd-3a2f-349a-ab1c-63ce4b994d47",
+					"protocol": "https",
+					"host": [
+						"stg-id",
+						"uaepass",
+						"ae"
+					],
+					"path": [
+						"idshub",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080"
+						},
+						{
+							"key": "code",
+							"value": "0bd882fd-3a2f-349a-ab1c-63ce4b994d47"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STEP2 Stg token by url encoded",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "sandbox_stage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sandbox_stage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "572a065c-8eb3-31b1-ad46-28c6f3aa2cf8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://stg-id.uaepass.ae/idshub/token",
+					"protocol": "https",
+					"host": [
+						"stg-id",
+						"uaepass",
+						"ae"
+					],
+					"path": [
+						"idshub",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "bfe96299-83f4-3ee9-80e4-56c24f5265d3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
